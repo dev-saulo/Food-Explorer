@@ -34,6 +34,8 @@ As seguintes tecnologias foram empregadas na criação deste projeto:
 - [Node.js](https://nodejs.org/en/)
 - [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [Vite](https://vitejs.dev/)
+- [Express](https://expressjs.com)
+- [Nodemon](https://nodemon.io/)
 
 
 ___
