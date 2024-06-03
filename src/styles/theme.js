@@ -35,6 +35,7 @@ export default {
 
         GREEN_100: "#04D361",
 
+        BLUE_300: "#0099FF",
         BLUE_200: "#82F3FF",
         BLUE_100: "#065E7C",
 
