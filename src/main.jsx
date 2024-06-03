@@ -1,10 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
+import { AuthProvider } from './hooks/auth';
+import { FavoritesProvider } from './hooks/favorites';
+import { CardProvider } from './hooks/card';
 
+import { Routes } from './routes';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <React.StrictMode>
+        <AuthProvider>
+          <CardProvider>
+            <FavoritesProvider>
+                    <Routes />
+            </FavoritesProvider>
+          </CardProvider>
+        </AuthProvider>
+    </React.StrictMode>
 )
