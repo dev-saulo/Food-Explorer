@@ -13,7 +13,7 @@ import { Heart } from 'phosphor-icons'
 //import do hooks e da API
 import { useAuth } from "../../hooks/auth";
 import { useFavorites } from '../../hooks/favorites';
-import { useCart } from '../../hooks/cart';
+import { useCard } from '../../hooks/card.jsx';
 import { Link } from "react-router-dom";
 import { api } from '../../services/api';
 import { useState } from "react";
@@ -27,7 +27,7 @@ export function Card({ data, ...rest }) {
     const { favorites, addPratoFavorito, removerPratoFavorito } = useFavorites()
     const isFavorite = favorites.some((dish) => dish.title === data.title)
 
-    const { handleAddDishPay, paymentAccept } = useCart();
+    const { handleAddDishPay, paymentAccept } = useCard();
     
     const [qtd, setQtd] = useState(1);
 
