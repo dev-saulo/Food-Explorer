@@ -13,22 +13,18 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+    animation: fade-in 1.2s cubic-bezier(.39,.575,.565,1.000) both;
 
-    @keyframes puff-in-center {
+    @keyframes fade-in {
         0% {
-            transform: scale(2);
-            filter: blur(4px);
             opacity: 0;
         }
         100% {
-            transform: scale(1);
-            filter: blur(0px);
             opacity: 1;
         }
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 999px) {
         flex-direction: row;
     }
 `;
@@ -44,11 +40,9 @@ export const Form = styled.form`
     height: 54rem;
     
     padding: 6.4rem;
-    border-radius: 1.6rem;
+    border-radius: 1rem;
 
-    background-color: ${({ theme }) => theme.COLORS.BLUE_200};
-    -webkit-box-shadow: 0px 0px 10px 5px #193746; 
-    box-shadow: 0px 0px 10px 5px #193746;
+    background-color: ${({ theme }) => theme.COLORS.DARK_GRAY_200};
 
     > h2 {
         font-family: 'Poppins', sans-serif;
@@ -64,7 +58,7 @@ export const Form = styled.form`
         margin-top: 3.2rem;
         
         text-align: center;
-        color: ${({ theme }) => theme.COLORS.BLUE};
+        color: ${({ theme }) => theme.COLORS.WHITE};
     }
 
     > .inputs {
@@ -74,7 +68,10 @@ export const Form = styled.form`
     > .inputs p {
         font-size: 1.6rem;
         margin-bottom: 0.8rem;
-        color: ${({ theme }) => theme.COLORS.GRAY_100};
+    }
+
+    @media (max-width: 375px) {    
+        padding: 3rem;
     }
 `;
 
@@ -98,4 +95,16 @@ export const Logo = styled.div`
         height: 5rem;
         width: 5rem;
     }
+`;
+
+export const ImageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const Image = styled.img`
+  width: 100px;
+  height: auto;
+  margin-top: 10px;
 `;

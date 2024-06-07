@@ -25,11 +25,6 @@ export const Container = styled.div`
             color: ${({ theme }) => theme.COLORS.LIGHT_GRAY_200};
         }
     }
-
-    input:focus {
-        -webkit-box-shadow: 0px 0px 10px 5px #193746; 
-        box-shadow: 0px 0px 10px 5px #193746;
-    }
     
     > svg {
         margin-left: 1.4rem;

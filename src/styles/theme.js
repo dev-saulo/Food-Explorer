@@ -16,9 +16,9 @@ export default {
         GRADIENT_200: "#091E26", /* 1ª gradiente - Home */
         GRADIENT_100: "#00131C", /* 2ª gradiente - Home */
 
-        LIGHT_GRAY_500: "#192227",
-        LIGHT_GRAY_300: "#0D161B",
-        LIGHT_GRAY_200: "#001119",
+        DARK_GRAY_500: "#192227",
+        DARK_GRAY_300: "#0D161B",
+        DARK_GRAY_200: "#001119",
 
         LIGHT_GRAY_700: "#4D585E",
         LIGHT_GRAY_600: "#76797B",

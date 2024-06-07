@@ -1,8 +1,10 @@
-import { Container, Form, Logo } from "./styles";
+import { Container, Form, Logo, ImageContainer, Image } from "./styles";
 
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../../styles/global'
 import darkTheme from '../../styles/theme';
+
+import Client from "../../assets/img/client.png"
 
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
@@ -59,6 +61,9 @@ export function SignUp() {
                             </svg>
                             <h1>food explorer</h1>
                         </div>
+                        <ImageContainer>
+                            <Image src={ Client } alt="Clientes" />
+                        </ImageContainer>
                     </Logo>
                     
                     <Form>
@@ -92,7 +97,7 @@ export function SignUp() {
                         </div>
 
                         <Button 
-                            title={loading ? "Cadastrando" : "Criar conta"}
+                            title={loading ? "Cadastrando..." : "Criar conta"}
                             onClick={handleSignUp} 
                             disabled={loading}
                         />

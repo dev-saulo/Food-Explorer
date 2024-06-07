@@ -9,12 +9,10 @@ import darkMode from "../../styles/theme"
 
 import bannerImg from "../../assets/img/macarrons-home.png"
 
-//Import das APIs
 import { api } from "../../services/api"
 import { FavoritesItem } from "../../hooks/favorites"
 import { useState, useEffect } from "react"
 
-//Import dos componentes
 import { Header } from "../../components/Header"
 import { Card } from "../../components/Card"
 import { Footer } from "../../components/Footer"
@@ -29,7 +27,6 @@ export function Home() {
 
     const { favorites } = FavoritesItem();
 
-    //Favoritando os pratos
     async function handleFavorites(favorite) {
         if (favorite.length === 0) {
             return
