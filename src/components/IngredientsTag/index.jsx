@@ -1,6 +1,7 @@
 import { Container } from "./styles";
 
-import { Plus , X } from "phosphor-icons";
+import { AiOutlinePlus } from "react-icons/ai";
+import { VscClose } from "react-icons/vsc";
 
 export function IngredientsTag({ isNew, value, onClick, ...rest }) {
     return (
@@ -35,7 +36,7 @@ export function IngredientsTag({ isNew, value, onClick, ...rest }) {
                 onClick={onClick}
                 className={isNew ? "button-add" : "button-delete"}
             >
-                { isNew ? <Plus /> : <X />}
+                { isNew ? <AiOutlinePlus /> : <VscClose />}
             </button>
         </Container>
     );

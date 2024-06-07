@@ -16,8 +16,10 @@ import { useAuth } from '../../hooks/auth';
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 
-import { UserCircle, EnvelopeSimple, Lock, Camera, ShoppingBag, Plus } from 'phosphor-icons';
-import { WhatsappLogo } from 'phosphor-icons';
+import { CiUser, CiLock, CiCamera } from 'react-icons/ci';
+import { LiaShoppingBagSolid, LiaEnvelope  } from "react-icons/lia";
+import { AiOutlinePlus } from "react-icons/ai";
+import { FaWhatsapp } from "react-icons/fa";
 import avatarImg from '../../assets/img/avatar.png';
 import logo from '../../assets/img/poligono.svg';
 
@@ -67,7 +69,7 @@ export function Profile() {
                                         <img src={avatar} alt="Foto do usuário" />
 
                                         <label htmlFor="avatar">
-                                            <Camera />
+                                            <CiCamera />
 
                                             <input id="avatar" type="file" accept="image/*" onChange={handleChangeAvatar} />
                                         </label>
@@ -75,22 +77,22 @@ export function Profile() {
 
                                     <div className='inputs'>
                                         <label>
-                                            <UserCircle size={20}/>
+                                            <CiUser  size={20}/>
                                             <input type="text" placeholder="Nome" value={name} onChange={e => setName(e.target.value)} />
                                         </label>
 
                                         <label>
-                                            <EnvelopeSimple size={20}/>
+                                            <LiaEnvelope size={20}/>
                                             <input type="text" placeholder="E-mail" value={email} onChange={e => setEmail(e.target.value)} />
                                         </label>
 
                                         <label>
-                                            <Lock size={20}/>
+                                            <CiLock  size={20}/>
                                             <input type="password" placeholder="Senha atual" onChange={e => setPasswordOld(e.target.value)} />
                                         </label>
 
                                         <label>
-                                            <Lock size={20}/>
+                                            <CiLock  size={20}/>
                                             <input type="password" placeholder="Nova senha" onChange={e => setPasswordNew(e.target.value)} />
                                         </label>
                                     </div>
@@ -111,11 +113,11 @@ export function Profile() {
                                             <p>Olá <span>{name}</span>, acesse a opção desejada:</p>
 
                                             <Link to="/orders">
-                                                <Button title="Ver pedidos" icon={ShoppingBag} />
+                                                <Button title="Ver pedidos" icon={LiaShoppingBagSolid} />
                                             </Link>
 
                                             <Link to="/createdish">
-                                                <Button title="Novo prato" icon={Plus} />
+                                                <Button title="Novo prato" icon={AiOutlinePlus} />
                                             </Link>
                                         </Infos>
 
@@ -131,12 +133,12 @@ export function Profile() {
                                             <p>Olá <span>{name}</span>, acesse a opção desejada:</p>
 
                                             <Link to="/orders">
-                                                <Button title="Meus pedidos" icon={ShoppingBag} />
+                                                <Button title="Meus pedidos" icon={LiaShoppingBagSolid} />
                                             </Link>
 
-                                            <Button title="Contato por e-mail" icon={EnvelopeSimple} onClick={() => window.location = 'mailto:contato@foodexplorer.com'} />
+                                            <Button title="Contato por e-mail" icon={LiaEnvelope} onClick={() => window.location = 'mailto:contato@foodexplorer.com'} />
 
-                                            <Button title="WhatsApp" icon={WhatsappLogo} onClick={() => window.open("https://api.whatsapp.com/send?phone=+999999999999&text=Oi ! =)", '_blank')} />
+                                            <Button title="WhatsApp" icon={FaWhatsapp} onClick={() => window.open("https://api.whatsapp.com/send?phone=+999999999999&text=Oi ! =)", '_blank')} />
                                         </Infos>
                                 }
                             </div>

@@ -10,19 +10,19 @@ import darkTheme from '../../styles/theme';
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { ButtonText } from "../../components/ButtonText";
-import { Ingredients } from "../../components/IngredientsTag";
+import { IngredientsTag } from "../../components/IngredientsTag";
 import { Button } from "../../components/Button";
 
 import { api } from "../../services/api";
 import { useAuth } from "../../hooks/auth";
-import { useCart } from '../../hooks/cart';
+import { useCard } from '../../hooks/card';
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-import { ArrowLeft } from 'phosphor-icons';
-import { Minus, Plus } from 'phosphor-icons';
+import { PiArrowLeftLight } from "react-icons/pi";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
 export function Details() {
     const [ theme, toggleTheme ] = useDarkMode();
@@ -41,7 +41,7 @@ export function Details() {
 
     const imageURL = data && `${api.defaults.baseURL}/files/${data.image}`;
 
-    const { handleAddDishToCart } = useCart();
+    const { handleAddDishToCart } = useCard();
     
     const [quantity, setQuantity] = useState(1);
 
@@ -85,7 +85,7 @@ export function Details() {
                             <Link>
                                 <ButtonText
                                     title="Voltar" 
-                                    icon={ArrowLeft} 
+                                    icon={PiArrowLeftLight} 
                                     onClick={handleBack}
                                 />
                             </Link>
@@ -103,7 +103,7 @@ export function Details() {
                                         <Ingredient>
                                             {
                                                 data.ingredients.map(ingredient => (
-                                                    <Ingredients
+                                                    <IngredientsTag
                                                         key={String(ingredient.id)}
                                                         ingredient={ingredient.name}
                                                     />
@@ -134,12 +134,12 @@ export function Details() {
                                                     <PurchaseCard>
                                                         <div className="counter">
                                                             <ButtonText 
-                                                                icon={Minus}
+                                                                icon={AiOutlineMinus}
                                                                 onClick={decrease}
                                                             />
                                                             <span>{quantity.toString().padStart(2, '0')}</span>
                                                             <ButtonText 
-                                                                icon={Plus}
+                                                                icon={AiOutlinePlus}
                                                                 onClick={increase}
                                                             />
                                                         </div>

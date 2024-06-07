@@ -1,7 +1,5 @@
-// Imports de estilos
 import { Container, Content, Form } from "./styles.js";
 
-// Import dos Temas
 import { ThemeProvider } from 'styled-components';
 import { ThemeSlider} from "../../components/ThemeSlider";
 import { useDarkMode } from '../../styles/modeDarkTheme.js';
@@ -9,13 +7,12 @@ import GlobalStyles from '../../styles/global'
 import lightTheme from '../../styles/lightTheme';
 import darkTheme from '../../styles/theme';
 
-// Imports dos componentes
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Button } from "../../components/Button";
 import { ButtonText } from "../../components/ButtonText";
 import { Input } from "../../components/Input";
-import { Ingredients } from "../../components/Ingredients";
+import { IngredientsTag } from "../../components/IngredientsTag";
 import { Textarea } from "../../components/Textarea";
 import { PageError } from "../../components/ErrorPag";
 
@@ -25,9 +22,8 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-// Imports de icones
-import { ArrowLeft } from 'phosphor-icons';
-import { UploadSimple } from "phosphor-icons";
+import { PiArrowLeftLight } from "react-icons/pi";
+import { VscCloudUpload } from "react-icons/vsc";
 
 export function CreateDish( ) {
     const [ theme, toggleTheme ] = useDarkMode();
@@ -131,7 +127,7 @@ export function CreateDish( ) {
                                 <Form>
                                     <header>
                                         <Link to="/">
-                                            <ButtonText title="Voltar" icon={ArrowLeft}/>
+                                            <ButtonText title="Voltar" icon={PiArrowLeftLight}/>
                                         </Link>
                                         <h1>Adicionar prato</h1>
                                     </header>
@@ -140,7 +136,7 @@ export function CreateDish( ) {
                                         <div className="dishImage">
                                             <p>Imagem do Prato</p>
                                             <label htmlFor="image">
-                                                <UploadSimple size={24}/> 
+                                                <VscCloudUpload size={24}/> 
                                                 Selecione imagem 
                                             </label>
                                             <Input type="file" id="image" name="image" accept="image/*" onChange={e => setImage(e.target.files[0])} />

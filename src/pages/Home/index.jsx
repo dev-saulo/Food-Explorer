@@ -1,7 +1,5 @@
-// Import dos estilos da Home
 import { Container, Content, Banner } from "./styles";
 
-//Import dos estilos
 import { ThemeProvider } from "styled-components"
 import { ThemeSlider } from "../../components/ThemeSlider"
 import { useDarkMode } from "../../styles/modeDarkTheme"
@@ -9,12 +7,11 @@ import GlobalStyles from "../../styles/global"
 import lightMode from "../../styles/lightTheme"
 import darkMode from "../../styles/theme"
 
-//Import do banner da Home
 import bannerImg from "../../assets/img/macarrons-home.png"
 
 //Import das APIs
 import { api } from "../../services/api"
-import { Favorite } from "../../hooks/favorites"
+import { FavoritesItem } from "../../hooks/favorites"
 import { useState, useEffect } from "react"
 
 //Import dos componentes
@@ -30,7 +27,7 @@ export function Home() {
     const [dishes, setDishes] = useState([])
     const [search, setSearch] = useState("")
 
-    const { favorites } = Favorite();
+    const { favorites } = FavoritesItem();
 
     //Favoritando os pratos
     async function handleFavorites(favorite) {

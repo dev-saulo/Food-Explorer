@@ -6,7 +6,7 @@ import { EditDish } from "../pages/Edit";
 import { Profile } from "../pages/Profile";
 import { Details } from "../pages/Details";
 import { Card } from "../pages/Card";
-import { Orders } from "../pages/OrdersHistory";
+import { Orders } from "../pages/OrderHistory";
 
 export function AppRoutes() {
     return (
@@ -17,7 +17,7 @@ export function AppRoutes() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/details/:id" element={<Details />} />
             <Route path="/card" element={<Card />} />
-            <Route path="/OrdersHistory" element={<Orders />} />
+            <Route path="/OrderHistory" element={<Orders />} />
         </Routes>
     )
 }

@@ -1,15 +1,11 @@
-// Import da estilização
 import { Container, Content } from "./styles";
 
-// Import do Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-// Import estilização do Swiper
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-// Import required modules
 import { Pagination, Navigation } from 'swiper/modules';
 
 export function Carousel({children}) {

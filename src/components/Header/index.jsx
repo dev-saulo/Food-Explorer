@@ -3,8 +3,9 @@ import { useAuth } from '../../hooks/auth';
 
 import { Link } from "react-router-dom";
 
-import { MagnifyingGlass, LogOut, UserCircle, Basket, Heart } from 'phosphor-icons';
-import { Receipt } from "phosphor-icons";
+import { CiLogout, CiUser, CiShoppingBasket, CiHeart } from "react-icons/ci";
+import { PiMagnifyingGlassThin } from "react-icons/pi";
+import { CiReceipt } from "react-icons/ci";
 
 import logo from '../../assets/img/poligono.svg';
 
@@ -45,7 +46,7 @@ export function Header({search, favoritesFilter}) {
 
                     <Search>
                         <label>
-                            <MagnifyingGlass size={24}/>
+                            <PiMagnifyingGlassThin size={24}/>
                             <input type="text" placeholder="Busque por pratos ou ingredientes" onChange={e => {search(e.target.value)}}/>
                         </label>
                     </Search>
@@ -54,7 +55,7 @@ export function Header({search, favoritesFilter}) {
                         user.isAdmin ?
                             <Link to="/orders">
                                 <Button type='button'>
-                                    <Receipt size={24}/>
+                                    <CiReceipt size={24}/>
                                     Novo prato 
                                     <span>({orders.length})</span>
                                 </Button>
@@ -62,7 +63,7 @@ export function Header({search, favoritesFilter}) {
                     :
                             <Link to="/cart">
                                 <Button type='button'>
-                                    <Receipt size={24}/>
+                                    <CiReceipt size={24}/>
                                     Pedidos 
                                     <span>({cart.length})</span>
                                 </Button>
@@ -73,23 +74,23 @@ export function Header({search, favoritesFilter}) {
                         user.isAdmin ?
                             <Link to="/profile">
                                 <Profile>
-                                    <UserCircle />
+                                    <CiUser />
                                 </Profile>
                             </Link>
                     :
                         <Profile onClick={userMenu}>
-                            <UserCircle />
+                            <CiUser />
                             <div className="user-menu" id="user-menu">
                                     <Link to="/orders">
                                         <ButtonMenu>
-                                            <Basket size={24}/>
+                                            <CiShoppingBasket size={24}/>
                                             Meus Pedidos
                                         </ButtonMenu>
                                     </Link>
 
                                     <Link to="/">
                                         <ButtonMenu onClick={favoritesFilter}>
-                                            <Heart size={24}/>
+                                            <CiHeart size={24}/>
                                             Meus Favoritos
                                         </ButtonMenu>
                                     </Link>
@@ -104,9 +105,9 @@ export function Header({search, favoritesFilter}) {
                         </Profile>
                     }
 
-                    <Logout to="/" onClick={signOut}>
-                        <LogOut />
-                    </Logout>
+                    <CiLogout to="/" onClick={signOut}>
+                        <CiLogout />
+                    </CiLogout>
                 </div>
 
             </Content>

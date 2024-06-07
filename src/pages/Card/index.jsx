@@ -1,4 +1,3 @@
-// Imports das estilizações
 import { Container, Content, PaymentCard } from "./styles.js";
 
 
@@ -9,13 +8,12 @@ import GlobalStyles from '../../styles/global'
 import lightTheme from '../../styles/lightTheme';
 import darkTheme from '../../styles/theme';
 
-// Imports de Componentes
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { OrderCard } from "../../components/Order";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
-import { PageError } from "../../components/PageError";
+import { PageError } from "../../components/ErrorPag";
 
 import { api } from "../../services/api";
 import { useAuth } from "../../hooks/auth";
@@ -23,8 +21,7 @@ import { useCard } from '../../hooks/card';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
-// Imports das Imagens
-import { Receipt } from 'phosphor-icons';
+import { CiReceipt } from "react-icons/ci";
 import logoPix from '../../assets/img/pix.svg';
 import cardImg from '../../assets/img/CreditCard.svg';
 import qrCode from '../../assets/img/qrcode.svg';
@@ -222,7 +219,7 @@ export function Card() {
                                                     <Button
                                                         title={loading ? "Finalizando pagamento" : "Finalizar pagamento"}
                                                         disabled={loading}
-                                                        icon={Receipt}
+                                                        icon={CiReceipt}
                                                         style={ { height: 56 } }
                                                         className="finishPaymentButton"
                                                         onClick={()=>{handleFinishPayment(Card)}}
@@ -396,7 +393,7 @@ export function Card() {
                                                     <Button
                                                             title={loading ? "Finalizando pagamento" : "Finalizar pagamento"}
                                                             disabled={loading}
-                                                            icon={Receipt}
+                                                            icon={CiReceipt}
                                                             style={ { height: 56 } }
                                                             className="finishPaymentButton"
                                                             onClick={()=>{handleFinishPayment(Card)}}

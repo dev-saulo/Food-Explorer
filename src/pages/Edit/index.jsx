@@ -14,7 +14,7 @@ import { ButtonText } from "../../components/ButtonText";
 import { Input } from "../../components/Input";
 import { IngredientsTag } from "../../components/IngredientsTag";
 import { Textarea } from "../../components/Textarea";
-import { PageError } from "../../components/PageError";
+import { PageError } from "../../components/ErrorPag";
 
 import { api } from "../../services/api";
 import { useAuth } from "../../hooks/auth";
@@ -23,8 +23,8 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import { ArrowLeft } from 'phosphor-icons';
-import { Camera } from "phosphor-icons";
+import { PiArrowLeftLight } from "react-icons/pi";
+import { CiCamera } from "react-icons/ci";
 
 export function EditDish() {
     const [ theme, toggleTheme ] = useDarkMode();
@@ -177,7 +177,7 @@ export function EditDish() {
                                 <Form>
                                     <header>
                                         <Link to="/">
-                                            <ButtonText title="Voltar" icon={ArrowLeft}/>
+                                            <ButtonText title="Voltar" icon={PiArrowLeftLight}/>
                                         </Link>
                                         <h1>Editar prato</h1>
                                     </header>
@@ -193,7 +193,7 @@ export function EditDish() {
                                                 />
 
                                                 <label htmlFor="image">
-                                                    <Camera />
+                                                    <CiCamera />
 
                                                     <input id="image" type="file" name="image" accept="image/*" onChange={handleChangeImage} />
                                                 </label>

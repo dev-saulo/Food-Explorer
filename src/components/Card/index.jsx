@@ -1,16 +1,12 @@
-//import do styles
 import { Container, Content, CreditCard } from './styles.js'
 
-//import components
 import { Button } from '../Button';
 import { ButtonText } from "../ButtonText";
 
-//import dos icons e images
-import { Receipt } from 'phosphor-icons';
-import { Minus, Plus } from 'phosphor-icons';
-import { Heart } from 'phosphor-icons'
+import { CiReceipt } from "react-icons/ci";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import { CiHeart } from "react-icons/ci";
 
-//import do hooks e da API
 import { useAuth } from "../../hooks/auth";
 import { useFavorites } from '../../hooks/favorites';
 import { useCard } from '../../hooks/card.jsx';
@@ -61,7 +57,7 @@ export function Card({ data, ...rest }) {
                             <p className="description">{data.description}</p>
                             <h1 className="price">R$ {data.price}</h1>
                             <Link to={`/editDish/${data.id}`}>
-                                <Button title="editar prato" icon={Receipt} />
+                                <Button title="editar prato" icon={CiReceipt} />
                             </Link>
                         </div>
                     </Content>
@@ -71,9 +67,9 @@ export function Card({ data, ...rest }) {
                     <Content>
                         <button className="favButton" onClick={() => isFavorite ? removerPratoFavorito(data) : addPratoFavorito(data)}>
                             {isFavorite ?
-                                <Heart size={32} weight="fill" />
+                                <CiHeart size={32} weight="fill" />
                             :
-                                <Heart />
+                                <CiHeart />
                             }
                         </button>
 
@@ -87,11 +83,11 @@ export function Card({ data, ...rest }) {
 
                             <CreditCard>
                                 <div className="counter">
-                                    <ButtonText icon={Minus} onClick={decrease} />
+                                    <ButtonText icon={AiOutlineMinus} onClick={decrease} />
                                     <span>{qtd.toString().padStart(2, '0')}</span>
-                                    <ButtonText icon={Plus} onClick={increase} />
+                                    <ButtonText icon={AiOutlinePlus} onClick={increase} />
                                 </div>
-                                <Button title="incluir" icon={Receipt} onClick={() => handleAddDishPay(data, qtd, imageURL)} style={ { height: 56, width: 92, padding: '12px 4px' } } />
+                                <Button title="incluir" icon={CiReceipt} onClick={() => handleAddDishPay(data, qtd, imageURL)} style={ { height: 56, width: 92, padding: '12px 4px' } } />
                             </CreditCard>
                         </div>
                     </Content>

@@ -1,13 +1,11 @@
-// Import da estilização
 import { Container } from './styles'
 
-// Import do componente
 import { ButtonText } from '../ButtonText'
 
 import { useNavigate } from 'react-router-dom'
 import Error from '../../assets/img/error-404.png'
 
-import { ArrowLeft } from 'phosphor-icons';
+import { PiArrowLeftLight } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
 
@@ -22,7 +20,7 @@ export function PageError(){
         <Container>
             <header>
                 <Link to="/">
-                    <ButtonText title="Voltar" icon={ArrowLeft} onClick={handleGoBack}/>
+                    <ButtonText title="Voltar" icon={PiArrowLeftLight} onClick={handleGoBack}/>
                 </Link>
             </header>
 
