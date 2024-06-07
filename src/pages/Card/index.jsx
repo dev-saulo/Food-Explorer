@@ -4,7 +4,7 @@ import { Container, Content, PaymentCard } from "./styles.js";
 
 import { ThemeProvider } from 'styled-components';
 import { ThemeSlider} from "../../components/ThemeSlider";
-import { useDarkMode } from '../../styles/useDarkMode';
+import { useDarkMode } from '../../styles/modeDarkTheme';
 import GlobalStyles from '../../styles/global'
 import lightTheme from '../../styles/lightTheme';
 import darkTheme from '../../styles/theme';
@@ -12,7 +12,7 @@ import darkTheme from '../../styles/theme';
 // Imports de Componentes
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
-import { OrderCard } from "../../components/OrderCard";
+import { OrderCard } from "../../components/Order";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { PageError } from "../../components/PageError";

@@ -2,7 +2,7 @@ import { Container, Content, Form, Avatar, Infos, Logo } from './styles';
 
 import { ThemeProvider } from 'styled-components';
 import { ThemeSlider} from "../../components/ThemeSlider";
-import { useDarkMode } from '../../styles/useDarkMode';
+import { useDarkMode } from '../../styles/modeDarkTheme';
 import GlobalStyles from '../../styles/global'
 import lightTheme from '../../styles/lightTheme';
 import darkTheme from '../../styles/theme';

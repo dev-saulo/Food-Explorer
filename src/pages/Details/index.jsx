@@ -2,7 +2,7 @@ import { Container, Content, Ingredient, PurchaseCard } from "./styles.js";
 
 import { ThemeProvider } from 'styled-components';
 import { ThemeSlider} from "../../components/ThemeSlider";
-import { useDarkMode } from '../../styles/useDarkMode';
+import { useDarkMode } from '../../styles/modeDarkTheme';
 import GlobalStyles from '../../styles/global'
 import lightTheme from '../../styles/lightTheme';
 import darkTheme from '../../styles/theme';
@@ -10,7 +10,7 @@ import darkTheme from '../../styles/theme';
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { ButtonText } from "../../components/ButtonText";
-import { Ingredients } from "../../components/Ingredients";
+import { Ingredients } from "../../components/IngredientsTag";
 import { Button } from "../../components/Button";
 
 import { api } from "../../services/api";
