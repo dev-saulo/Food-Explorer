@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 
-export const FavoritesItem = createContext({});
+export const FavoritesContext = createContext({});
 
 function FavoritesProvider({ children }) {
     const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem(`@foodexplorer:favorites`)) || []);
@@ -18,14 +18,18 @@ function FavoritesProvider({ children }) {
     }, [favorites])
 
     return (
-        <FavoritesItem.Provider value={{ favorites, addDishToFavorite, removeDishFromFavorite, }}>
+        <FavoritesContext.Provider value={{ 
+            favorites,
+            addDishToFavorite,
+            removeDishFromFavorite,
+        }}>
             {children}
-        </FavoritesItem.Provider>
+        </FavoritesContext.Provider>
     )
 }
 
 function useFavorites() {
-    const context = useContext(FavoritesItem);
+    const context = useContext(FavoritesContext);
     return context;
 }
 
