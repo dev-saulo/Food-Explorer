@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import { CiLogout, CiUser, CiShoppingBasket, CiHeart } from "react-icons/ci";
 import { PiMagnifyingGlassThin } from "react-icons/pi";
 import { CiReceipt } from "react-icons/ci";
+import { IoMenu } from "react-icons/io5";
+
 
 import logo from '../../assets/img/poligono.svg';
 
@@ -29,9 +31,10 @@ export function Header({search, favoritesFilter}) {
         <Container>
             <Content>
                 <div className="hamburger" id="hamburger" onClick={mobileMenu}>
+                    <IoMenu size={24} />
+                    {/* <span className="bar"></span>
                     <span className="bar"></span>
-                    <span className="bar"></span>
-                    <span className="bar"></span>
+                    <span className="bar"></span> */}
                 </div>
                 <Logo>
                     <div className="logo">
@@ -106,9 +109,9 @@ export function Header({search, favoritesFilter}) {
                         </Profile>
                     }
 
-                    <CiLogout to="/" onClick={signOut}>
+                    <Logout to="/" onClick={signOut}>
                         <CiLogout />
-                    </CiLogout>
+                    </Logout>
                 </div>
 
             </Content>

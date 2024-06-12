@@ -32,8 +32,7 @@ export const Container = styled.div`
         border-radius: 5rem;
         transition: 0.3s;
         outline: 1px solid ${({ theme }) => theme.COLORS.BLUE_200};
-        -webkit-box-shadow: 0px 0px 10px 5px #193746; 
-        box-shadow: 0px 0px 10px 5px #193746;
+
     }
 
     input:checked ~ .slider {
@@ -45,8 +44,8 @@ export const Container = styled.div`
         position: absolute;
         top: 0.325rem;
         left: 0.4rem;
-        width: 1.875rem;
-        height: 1.875rem;
+        width: 1.9rem;
+        height: 1.9rem;
         border-radius: 50%;
         box-shadow: inset 7px -1px 0px 0px #D8DBE0;
         background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
@@ -54,8 +53,8 @@ export const Container = styled.div`
     }
 
     input:checked ~ .slider::before {
-        transform: translateX(2.375rem);
-        background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
+        transform: translateX(2.4rem);
+        background-color: ${({ theme }) => theme.COLORS.DARK_100};
         box-shadow: none;
     }
 `;

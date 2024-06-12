@@ -4,8 +4,8 @@ import { ThemeProvider } from "styled-components"
 import { ThemeSlider } from "../../components/ThemeSlider"
 import { useDarkMode } from "../../styles/modeDarkTheme"
 import GlobalStyles from "../../styles/global"
-import lightMode from "../../styles/lightTheme"
-import darkMode from "../../styles/theme"
+import lightTheme from '../../styles/lightTheme';
+import darkTheme from '../../styles/theme';
 
 import bannerImg from "../../assets/img/macarrons-home.png"
 
@@ -20,7 +20,7 @@ import { Footer } from "../../components/Footer"
 
 export function Home() {
     const [ theme, toggleTheme ] = useDarkMode();
-    const themeMode = theme === 'lightMode' ? lightMode : darkMode;
+    const themeMode = theme === 'lightTheme' ? lightTheme : darkTheme;
 
     const [dishes, setDishes] = useState([])
     const [search, setSearch] = useState("")

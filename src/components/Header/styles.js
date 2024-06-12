@@ -10,8 +10,6 @@ export const Container = styled.header`
     justify-content: center;
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_HEADER_FOOTER_100};
 
-    -webkit-box-shadow: 0px 0px 10px 5px #193746; 
-    box-shadow: 0px 0px 10px 5px #193746;
 `;
 
 export const Content = styled.div`
@@ -66,7 +64,7 @@ export const Content = styled.div`
             
             transition: 0.3s;
             
-            background-color: ${({ theme }) => theme.COLORS.BLUE_200};
+            background-color: ${({ theme }) => theme.COLORS.BACKGROUND_HEADER_FOOTER_100};
             box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
         }
 
@@ -100,21 +98,16 @@ export const Content = styled.div`
 export const Logo = styled.div`
     display: flex;
     align-items: center;
-    color: ${({ theme }) => theme.COLORS.BLUE_100};
+    color: ${({ theme }) => theme.COLORS.WHITE};
     
     h1 {
-        font-size: 2.51109rem;
-        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-    }
-    
-    .logo img:hover {
-        -webkit-animation: rotate-center 0.6s ease-in-out both;
-        animation: rotate-center 0.6s ease-in-out both;
+        font-size: 2.5rem;
     }
     
     a {
         display: flex;
-        gap: 1.123rem;
+        align-items: center;
+        gap: 1.12rem;
 
         text-decoration: none;
         color: inherit;
@@ -188,14 +181,12 @@ export const Logout = styled(Link)`
     
     border: none;
     background: none;
+
+    cursor: pointer;
     
     > svg {
         color: ${({ theme }) => theme.COLORS.WHITE};
         font-size: 3.2rem;
-    }
-
-    > svg:hover {
-        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     }
 `;
 
@@ -213,10 +204,6 @@ export const Profile = styled.div`
     > svg {
         color: ${({ theme }) => theme.COLORS.BLUE};
         font-size: 3.2rem;
-    }
-    
-    > svg:hover {
-        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     }
 
     .user-menu {
