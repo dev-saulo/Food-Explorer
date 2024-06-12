@@ -1,5 +1,6 @@
 import { Container, Content, Logo, Search, Logout, Button, ButtonMenu, Profile } from "./styles";
 import { useAuth } from '../../hooks/auth';
+import { useCard } from '../../hooks/card';
 
 import { Link } from "react-router-dom";
 
@@ -13,7 +14,7 @@ export function Header({search, favoritesFilter}) {
     const { user } = useAuth()
     const { signOut } = useAuth();
 
-    const { cart, orders } = useCart();
+    const { card, orders } = useCard();
     
     function mobileMenu() {
         document.getElementById('hamburger').classList.toggle('active')
@@ -61,11 +62,11 @@ export function Header({search, favoritesFilter}) {
                                 </Button>
                             </Link>
                     :
-                            <Link to="/cart">
+                            <Link to="/card">
                                 <Button type='button'>
                                     <CiReceipt size={24}/>
                                     Pedidos 
-                                    <span>({cart.length})</span>
+                                    <span>({card.length})</span>
                                 </Button>
                             </Link>
                     }
@@ -97,7 +98,7 @@ export function Header({search, favoritesFilter}) {
                                     
                                     <Link to="/profile">
                                         <ButtonMenu>
-                                            <UserCircle size={24}/>
+                                            <CiUser size={24}/>
                                             Meu Perfil
                                         </ButtonMenu>
                                     </Link>
