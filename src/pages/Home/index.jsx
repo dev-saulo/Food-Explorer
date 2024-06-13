@@ -46,7 +46,7 @@ export function Home() {
         <ThemeProvider theme={themeMode}>
             <GlobalStyles />
                 <Container>
-                    <Header search={setSearch} favoritesFilter={() => handleFavorites(favorites)}/>
+                    <Header className="header" search={setSearch} favoritesFilter={() => handleFavorites(favorites)}/>
                         <Content>
 
                             <ThemeSlider theme={theme} toggleTheme={toggleTheme}/>
@@ -63,7 +63,7 @@ export function Home() {
                             </Banner>
 
                             <div className="cards">   
-                                <p>Pratos principais</p>
+                                <p>Refeições</p>
 
                                 {
                                     dishes.filter(dish => dish.category == "dishes").length > 0 &&

@@ -4,7 +4,8 @@ import { useCard } from '../../hooks/card';
 
 import { Link } from "react-router-dom";
 
-import { CiLogout, CiUser, CiShoppingBasket, CiHeart } from "react-icons/ci";
+import { CiUser, CiShoppingBasket, CiHeart } from "react-icons/ci";
+import { BiExit } from "react-icons/bi";
 import { PiMagnifyingGlassThin } from "react-icons/pi";
 import { CiReceipt } from "react-icons/ci";
 import { IoMenu } from "react-icons/io5";
@@ -84,8 +85,8 @@ export function Header({search, favoritesFilter}) {
                     :
                         <Profile onClick={userMenu}>
                             <CiUser />
-                            <div className="user-menu" id="user-menu">
-                                    <Link to="/orders">
+                            <div className="user-menu scale-up-ver-top" id="user-menu">
+                                    <Link to="/orderhistory">
                                         <ButtonMenu>
                                             <CiShoppingBasket size={24}/>
                                             Meus Pedidos
@@ -110,7 +111,7 @@ export function Header({search, favoritesFilter}) {
                     }
 
                     <Logout to="/" onClick={signOut}>
-                        <CiLogout />
+                        <BiExit />
                     </Logout>
                 </div>
 

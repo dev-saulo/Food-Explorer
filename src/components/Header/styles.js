@@ -162,14 +162,12 @@ export const Button = styled.button`
     border-radius: 0.5rem;
     
     gap: 1.1rem;
-    
     font-size: 1.4rem;
 
     background-color: ${({ theme }) => theme.COLORS.RED_100};
     color: ${({ theme }) => theme.COLORS.WHITE};
 
     padding: 0 3rem;
-
     @media (min-width: 768px) {
         max-width: 21.6rem;
     }
@@ -202,7 +200,7 @@ export const Profile = styled.div`
     cursor: pointer;
 
     > svg {
-        color: ${({ theme }) => theme.COLORS.BLUE};
+        color: ${({ theme }) => theme.COLORS.WHITE};
         font-size: 3.2rem;
     }
 
@@ -223,13 +221,45 @@ export const Profile = styled.div`
         z-index: 9999;
         
         border-radius: 1rem;
-        border: 1px solid ${({ theme }) => theme.COLORS.BLUE};
+        border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
         
         transition: 0.3s;
         
-        background-color: ${({ theme }) => theme.COLORS.BLUE_200};
-        box-shadow:
-            0 10px 27px rgba(0, 0, 0, 0.05);
+        background-color: ${({ theme }) => theme.COLORS.BACKGROUND_HEADER_FOOTER_100};        
+    }
+
+    .scale-up-ver-top {
+        -webkit-animation: scale-up-ver-top 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation: scale-up-ver-top 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+    
+    @-webkit-keyframes scale-up-ver-top {
+        0% {
+            -webkit-transform: scaleY(0.4);
+                    transform: scaleY(0.4);
+            -webkit-transform-origin: 100% 0%;
+                    transform-origin: 100% 0%;
+        }
+        100% {
+            -webkit-transform: scaleY(1);
+                    transform: scaleY(1);
+            -webkit-transform-origin: 100% 0%;
+                    transform-origin: 100% 0%;
+        }
+        }
+        @keyframes scale-up-ver-top {
+        0% {
+            -webkit-transform: scaleY(0.4);
+                    transform: scaleY(0.4);
+            -webkit-transform-origin: 100% 0%;
+                    transform-origin: 100% 0%;
+        }
+        100% {
+            -webkit-transform: scaleY(1);
+                    transform: scaleY(1);
+            -webkit-transform-origin: 100% 0%;
+                    transform-origin: 100% 0%;
+        }
     }
 `;
 
