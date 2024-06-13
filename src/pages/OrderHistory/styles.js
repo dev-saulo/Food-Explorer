@@ -51,12 +51,9 @@ export const Table = styled.div`
         max-height: 54.4rem;
         margin-top: 3.5rem;
         
-        border: 2px solid ${({ theme }) => theme.COLORS.LIGHT_GRAY_500};
+        border: 2px solid ${({ theme }) => theme.COLORS.DARK_GRAY_500};
         border-radius: 0.8rem;
         border-collapse: collapse;
-
-        -webkit-box-shadow: 0px 0px 10px 5px #193746; 
-        box-shadow: 0px 0px 10px 5px #193746;
     }
 
     table * {
@@ -70,11 +67,11 @@ export const Table = styled.div`
 
         height: 6.4rem;
         padding: 2.1rem 2.4rem;
-        border-bottom: 2px solid ${({ theme }) => theme.COLORS.LIGHT_GRAY_500};
+        border-bottom: 2px solid ${({ theme }) => theme.COLORS.DARK_GRAY_500};
         
         text-align: left;
         color: ${({ theme }) => theme.COLORS.LIGHT_GRAY_300};
-        background: ${({ theme }) => theme.COLORS.LIGHT_GRAY_200};
+        background: ${({ theme }) => theme.COLORS.BACKGROUND_400};
     }
 
     table th:first-child {
@@ -110,9 +107,8 @@ export const Table = styled.div`
         padding: 1.6rem 2.4rem;
     }
 
-    table th:nth-child(-n+3),
-    table td:nth-child(-n+3) {
-        border-right: 2px solid ${({ theme }) => theme.COLORS.LIGHT_GRAY_500};
+    table th:nth-child(-n+3) {
+        border-right: 2px solid ${({ theme }) => theme.COLORS.DARK_GRAY_500};
     }
 
     select {

@@ -1,17 +1,17 @@
 export default {
     COLORS: {
         BACKGROUND_600: "#28292C",
-        BACKGROUND_500: "#0D1D25",
-        BACKGROUND_400: "#000A0F",
+        BACKGROUND_500: "#0D1D25", /*Inputs*/
+        BACKGROUND_400: "#000A0F", /*Body*/
         BACKGROUND_300: "#000204",
         BACKGROUND_200: "#00070A",
-        BACKGROUND_100: "#00191A",
-        BACKGROUND_HEADER_FOOTER_100: "#00111A", /*Footer */
+        BACKGROUND_100: "#00191A", /*Footer*/
+        BACKGROUND_HEADER_FOOTER_100: "#00111A", /*Header*/
 
         DARK_500: "#000C12",
         DARK_100: "#000405",
                 
-        WHITE: "#FFFFFF",
+        WHITE: "#FFFFFF", /*Texto*/
 
         GRADIENT_200: "#091E26", /* 1ª gradiente - Home */
         GRADIENT_100: "#00131C", /* 2ª gradiente - Home */
@@ -30,7 +30,7 @@ export default {
         RED_400: "#AB4D55",
         RED_300: "#AB222E",
         RED_200: "#92000E",
-        RED_100: "#750310",
+        RED_100: "#750310", /*Botão*/
 
         YELLOW_100: "#FBA94C",
 

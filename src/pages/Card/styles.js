@@ -47,10 +47,7 @@ export const Content = styled.div`
         font-size: 2rem;
         width: 180px;
         height: 64px;
-        border-radius: 10px;
 
-        border: 1px solid white;
-        background-color: ${({ theme }) => theme.COLORS.BLUE_300};
     }
 
     @media (min-width: 768px) {
@@ -109,7 +106,7 @@ export const PaymentCard = styled.div`
             top: 2px;
             left: 1px;
             box-shadow: none;
-            background-color: ${({ theme }) => theme.COLORS.GRAY_400};
+            background-color: ${({ theme }) => theme.COLORS.BACKGROUND_500};
         } 
     
         .buttons img {
@@ -119,10 +116,14 @@ export const PaymentCard = styled.div`
     
         .buttons button:first-child {
             border-radius: 0.8rem 0 0;
+            color: ${({ theme }) => theme.COLORS.WHITE};
+            border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
         }
     
         .buttons button:last-child {
             border-radius: 0 0.8rem 0 0;
+            color: ${({ theme }) => theme.COLORS.WHITE};
+            border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
         }
     }
 

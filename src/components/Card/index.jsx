@@ -6,6 +6,7 @@ import { ButtonText } from "../ButtonText";
 import { CiReceipt } from "react-icons/ci";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { CiHeart } from "react-icons/ci";
+import imagePlaceholder from '../../assets/img/image-icon.png';
 
 import { useAuth } from "../../hooks/auth";
 import { useFavorites } from '../../hooks/favorites';
@@ -18,7 +19,8 @@ import { useState } from "react";
 export function Card({ data, ...rest }) {
 
     const { user } = useAuth()
-    
+
+    const imageURL = data.image ? `${api.defaults.baseURL}/files/${data.image}` : imagePlaceholder;
     
     const { favorites, addPratoFavorito, removerPratoFavorito } = useFavorites()
     const isFavorite = favorites.some((dish) => dish.title === data.title)

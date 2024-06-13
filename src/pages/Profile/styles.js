@@ -22,8 +22,6 @@ export const Content = styled.div`
     padding: 4rem;
     
     .card {
-        -webkit-box-shadow: 0px 0px 10px 5px #193746; 
-        box-shadow: 0px 0px 10px 5px #193746;
         border-radius: 1rem;
         margin-top: 4rem;
     }
