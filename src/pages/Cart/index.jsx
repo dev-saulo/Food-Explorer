@@ -1,9 +1,8 @@
 import { Container, Content, PaymentCard } from "./styles.js";
 
-
 import { ThemeProvider } from 'styled-components';
 import { ThemeSlider} from "../../components/ThemeSlider";
-import { useDarkMode } from '../../styles/modeDarkTheme';
+import { useDarkMode } from '../../styles/modeDarkTheme.js';
 import GlobalStyles from '../../styles/global'
 import lightTheme from '../../styles/lightTheme';
 import darkTheme from '../../styles/theme';
@@ -17,35 +16,36 @@ import { PageError } from "../../components/ErrorPag";
 
 import { api } from "../../services/api";
 import { useAuth } from "../../hooks/auth";
-import { useCard } from '../../hooks/card';
+import { useCart } from '../../hooks/cart';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
-import { CiReceipt } from "react-icons/ci";
+import { BsReceipt } from 'react-icons/bs';
 import logoPix from '../../assets/img/pix.svg';
 import cardImg from '../../assets/img/CreditCard.svg';
 import qrCode from '../../assets/img/qrcode.svg';
+import cartImg from '../../assets/img/shopping-cart.gif';
 import clock from '../../assets/img/clock.svg';
-import check from '../../assets/img/check.svg';
+import checkCircle from '../../assets/img/check.svg';
 
-export function Card() {
+export function Cart() {
     const [ theme, toggleTheme ] = useDarkMode();
     const themeMode = theme === 'lightTheme' ? lightTheme : darkTheme;
 
     const { user } = useAuth()
 
-    const { Card, total, handleResetCard} = useCard();
+    const { cart, total, handleResetCart} = useCart();
 
     const [loading, setLoading] = useState(false);
     
     const navigate = useNavigate();
 
-    function handleCreatedCard(Card) {
+    function handleCreatedCart(cart) {
         return {
           orderStatus: '🔴 Pendente',
           paymentMethod: pixActive ? 'pix': 'creditCard',
           totalPrice: total,
-          Card: Card.map(item => (
+          cart: cart.map(item => (
             {
               id: item.id,
               title: item.title,
@@ -55,38 +55,37 @@ export function Card() {
         }
     }
 
-    async function handleFinishPayment(Card) {
+    async function handleFinishPayment(cart) {
             
-        const newCard = handleCreatedCard(Card)
+        const newCart = handleCreatedCart(cart)
 
-        if (Card.length < 1) {
+        if (cart.length < 1) {
             navigate(-1);
-            return alert("Eita! Seu pedido está vazio, para efeturar comprar adicione seu pedido.");
+            return alert("Oops! Seu carrinho está vazio. Adicione algo antes de tentar pagar.");
         }
 
         if (!pixActive && num.length < 16) {
-            alert("Digite o numero do cartão");
+            alert("Erro: Número de cartão incompleto!");
             return;
         }
 
         if (!pixActive && date.length < 4) {
-            return alert("Digite a validade do cartão");
+            return alert("Erro: Validade do cartão incompleta!");
         }
 
         if (!pixActive && cvc.length < 3) {
-            return alert("Digite o CVC do cartão");
+            return alert("Erro: CVC do cartão incompleto!");
         }
 
         setLoading(true);
 
-        await api.post("/orders", newCard)
+        await api.post("/orders", newCart)
             .then(() => {
                 disableButton();
                 setTimeout(() => {    
-
-                    alert("Pedido realizado com sucesso!");
+                    alert("Pedido cadastrado com sucesso!");
                     navigate(-1);
-                    handleResetCard();
+                    handleResetCart();
 
                 }, 7000);
             })
@@ -94,7 +93,7 @@ export function Card() {
                 if(error.response){
                     alert(error.response.data.message);
                 } else {
-                    alert("Não foi fazer seu pedido");
+                    alert("Não foi possível cadastrar");
                 }
             });
 
@@ -114,9 +113,8 @@ export function Card() {
         setCvc(event.target.value.slice(0, limit));
     };
 
-    const [isPixVisible, setIsPixVisible] = useState(false);
+    const [isPixVisible, setIsPixVisible] = useState(true);
     const [isCreditVisible, setIsCreditVisible] = useState(false);
-    const [isCardVisible, setIsCardVisible] = useState(true);
     const [pixActive, setPixActive] = useState(false);
     const [creditActive, setCreditActive] = useState(false);
     const [isClockActive, setIsClockActive] = useState(false);
@@ -125,7 +123,6 @@ export function Card() {
     const handlePaymentPix = () => {
         setIsPixVisible(true);
         setIsCreditVisible(false);
-        setIsCardVisible(false);
         setPixActive(true);
         setCreditActive(false);
     };
@@ -133,7 +130,6 @@ export function Card() {
     const handlePaymentCredit = () => {
         setIsCreditVisible(true);
         setIsPixVisible(false);
-        setIsCardVisible(false);
         setCreditActive(true);
         setPixActive(false);
     };
@@ -149,7 +145,6 @@ export function Card() {
         setIsClockActive(true);
         setIsApprovedActive(false);
         setTimeout(() => {    
-
             setIsClockActive(false);
             setIsApprovedActive(true);
 
@@ -179,9 +174,12 @@ export function Card() {
                                         <h2>Meu pedido</h2>
                                         <div className="details">
                                             {
-                                                Card && 
-                                                    Card.map(item => (
-                                                        <OrderCard key={String(item.id)} data={item} />
+                                                cart && 
+                                                    cart.map(item => (
+                                                        <OrderCard 
+                                                            key={String(item.id)} 
+                                                            data={item}
+                                                        />
                                                     ))
                                             }
                                         </div>
@@ -209,7 +207,9 @@ export function Card() {
                                         </div>
 
                                         <div className="paymentBody">
-                                            
+
+
+
                                             {isPixVisible &&
                                                 <div className={pixActive === false ? 'active' : ''} id="paymentPix">
                                                     <div className="qr">
@@ -219,21 +219,47 @@ export function Card() {
                                                     <Button
                                                         title={loading ? "Finalizando pagamento" : "Finalizar pagamento"}
                                                         disabled={loading}
-                                                        icon={CiReceipt}
+                                                        icon={BsReceipt}
                                                         style={ { height: 56 } }
                                                         className="finishPaymentButton"
-                                                        onClick={()=>{handleFinishPayment(Card)}}
+                                                        onClick={()=>{handleFinishPayment(cart)}}
                                                     /> 
                                                 </div>
                                             }
 
                                             {isCreditVisible &&
-                                                <div className="paymentCredit" id="paymentCredit">
-
-                                                    <div className="inputs">
-                                                        <p>Número do Cartão</p>
-                                                        <Input
+                                            
+                                            <div className="paymentCredit" id="paymentCredit">
+                                                <div className="visa-card">
+                                                    <div className="logoContainer">
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            x="0px"
+                                                            y="0px"
+                                                            width="23"
+                                                            height="23"
+                                                            viewBox="0 0 48 48"
+                                                            className="svgLogo"
+                                                        >
+                                                            <path
+                                                            fill="#ff9800"
+                                                            d="M32 10A14 14 0 1 0 32 38A14 14 0 1 0 32 10Z"
+                                                            ></path>
+                                                            <path
+                                                            fill="#d50000"
+                                                            d="M16 10A14 14 0 1 0 16 38A14 14 0 1 0 16 10Z"
+                                                            ></path>
+                                                            <path
+                                                            fill="#ff3d00"
+                                                            d="M18,24c0,4.755,2.376,8.95,6,11.48c3.624-2.53,6-6.725,6-11.48s-2.376-8.95-6-11.48 C20.376,15.05,18,19.245,18,24z"
+                                                            ></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div className="number-container">
+                                                        <label className="input-label" for="cardNumber">Número do Cartão</label>
+                                                        <input                                                            
                                                             placeholder="0000 0000 0000 0000"
+                                                            className="inputstyle"
                                                             type="number"
                                                             id="num"
                                                             name="num"
@@ -242,19 +268,32 @@ export function Card() {
                                                         />
                                                     </div>
 
-                                                    <div className="validTo">
-                                                        <div>
-                                                            <p>Validade</p>
-                                                            <Input
-                                                                placeholder="04/25"
-                                                                type="text"
-                                                                maxLength="5"
+                                                    <div className="name-date-cvv-container">
+                                                        <div className="name-wrapper">
+                                                            <label className="input-label" for="holderName">Nome</label>
+                                                            <input
+                                                            className="inputstyle"
+                                                            id="holderName"
+                                                            placeholder="Nome no cartão"
+                                                            type="text"
                                                             />
                                                         </div>
 
-                                                        <div>
-                                                            <p>CVC</p>
-                                                            <Input
+                                                        <div className="expiry-wrapper">
+                                                            <label className="input-label" for="expiry">Validade</label>
+                                                            <input
+                                                                className="inputstyle" 
+                                                                placeholder="MM/AA"
+                                                                type="text"
+                                                                id="date"
+                                                                name="date"
+                                                                maxLength="4"
+                                                            />
+                                                        </div>
+                                                        <div className="cvv-wrapper">
+                                                            <label className="input-label" for="cvv">CVC</label>
+                                                            <input
+                                                                className="inputstyle"
                                                                 placeholder="***"
                                                                 type="number"
                                                                 id="cvc"
@@ -264,31 +303,34 @@ export function Card() {
                                                             />
                                                         </div>
                                                     </div>
-
+                                                </div>
+                                                <div className="paymentCreditButton" id="paymentCredit">
                                                     <Button
                                                             title={loading ? "Finalizando pagamento" : "Finalizar pagamento"}
                                                             disabled={loading}
-                                                            icon={CiReceipt}
-                                                            style={ { height: 56 } }
+                                                            icon={BsReceipt}
+                                                            style={ { height: 56, width: 250 } }
                                                             className="finishPaymentButton"
-                                                            onClick={()=>{handleFinishPayment(Card)}}
-                                                    /> 
-                                                </div>
+                                                            onClick={()=>{handleFinishPayment(cart)}}
+                                                    />
+                                                </div> 
+                                            </div>
+
                                             }
 
                                             {isClockActive &&
 
                                                 <div className="clock" id="clock">
                                                     <img src={clock} alt="Imagem do QRCode" />
-                                                    <p>Aguardando pagamento no caixa</p>
+                                                    <p>Aguarde: Estamos processando o seu pagamento</p>
                                                 </div>
                                             }
 
                                             {isApprovedActive &&
 
                                                 <div className="approved" id="approved">
-                                                    <img src={check} alt="Imagem de pagamento aprovado" />
-                                                    <p>Pagamento aprovado!</p>
+                                                    <img src={checkCircle} alt="Imagem de pagamento aprovado" />
+                                                    <p>Oba! Pagamento aprovado! Em breve faremos a entrega!</p>
                                                 </div>
                                             }
                                         </div>

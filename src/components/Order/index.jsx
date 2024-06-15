@@ -2,10 +2,10 @@ import { Container } from "./styles";
 
 import { ButtonText } from "../ButtonText";
 
-import { useCard } from '../../hooks/card';
+import { useCart } from '../../hooks/cart';
 
 export function OrderCard({data}) { 
-    const { handleRemoveDishFromCard, paymentAccept } = useCard();
+    const { handleRemoveDishFromCard, paymentAccept } = useCart();
 
     return(
         <Container>

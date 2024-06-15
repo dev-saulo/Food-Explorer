@@ -129,6 +129,7 @@ export const PaymentCard = styled.div`
 
     .paymentBody {
 
+        display: flex;
         width: 100%;
         max-width: 53.0rem;
         max-height: 48rem;
@@ -153,6 +154,11 @@ export const PaymentCard = styled.div`
             margin-bottom: 0.8rem;
         }
 
+        .paymentCreditButton {
+            display: flex;
+            justify-content: center;
+        }
+
         .paymentPix {
             text-align: center;
         }
@@ -169,22 +175,20 @@ export const PaymentCard = styled.div`
         }
 
         .clock,
-        .approved,
-        .cart {
+        .approved {
             width: 100%;
             text-align: center;
             color: ${({ theme }) => theme.COLORS.GRAY_300};
         }
 
         > .clock p,
-        .approved p,
-        .cart p {
+        .approved p {
             font-size: 2.4rem;
             margin-top: 3rem;
         }
     }
 
-    .cart,
+
     .clock,
     .approved,
     .paymentCredit,
@@ -209,4 +213,120 @@ export const PaymentCard = styled.div`
             opacity: 1;
         }
     }
+
+    .visa-card {
+        display: flex;
+        margin: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        width: 390px;
+        height: 240px;
+        background-image: radial-gradient(
+            circle 897px at 9% 80.3%,
+            rgba(55, 60, 245, 1) 0%,
+            rgba(234, 161, 15, 0.9) 100.2%
+        );
+        border-radius: 10px;
+        padding: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        position: relative;
+        gap: 15px;
+    }
+
+    .logoContainer {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: fit-content;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 18px;
+        
+    }
+        
+    .svgLogo {
+        height: 40px;
+        width: auto;
+        
+    }
+        
+    .inputstyle::placeholder {
+        color: #ffffff;
+        
+    }
+        
+    .inputstyle {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: white;
+        caret-color: red;
+        font-size: 13px;
+        height: 25px;
+        letter-spacing: 1.5px;
+        
+    }
+        
+    .number-container {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+
+    }
+        
+    #cardNumber {
+        width: 100%;
+        height: 25px;
+        
+    }
+        
+    .name-date-cvv-container {
+        width: 100%;
+        height: 25px;
+        display: flex;
+        gap: 10px;
+        
+    }
+        
+    
+    .name-wrapper {
+        width: 60%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        
+    }
+        
+    .expiry-wrapper,
+    .cvv-wrapper {
+        width: 30%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        
+    }
+        
+    .cvv-wrapper {
+        width: 10%;
+        
+    }
+        
+    #expiry,
+    #cvv {
+        width: 100%;
+        
+    }
+        
+    .input-label {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        color: #e2e2e2;
+        width: 100%;
+        
+    }
+
 `;

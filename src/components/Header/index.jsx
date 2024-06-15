@@ -1,11 +1,11 @@
 import { Container, Content, Logo, Search, Logout, Button, ButtonMenu, Profile } from "./styles";
 import { useAuth } from '../../hooks/auth';
-import { useCard } from '../../hooks/card';
+import { useCart } from '../../hooks/cart';
 
 import { Link } from "react-router-dom";
 
 import { CiUser, CiShoppingBasket, CiHeart } from "react-icons/ci";
-import { BiExit } from "react-icons/bi";
+import { CiLogout } from "react-icons/ci";
 import { PiMagnifyingGlassThin } from "react-icons/pi";
 import { CiReceipt } from "react-icons/ci";
 import { IoMenu } from "react-icons/io5";
@@ -17,7 +17,7 @@ export function Header({search, favoritesFilter}) {
     const { user } = useAuth()
     const { signOut } = useAuth();
 
-    const { card, orders } = useCard();
+    const { cart, orders } = useCart();
     
     function mobileMenu() {
         document.getElementById('hamburger').classList.toggle('active')
@@ -66,11 +66,11 @@ export function Header({search, favoritesFilter}) {
                                 </Button>
                             </Link>
                     :
-                            <Link to="/card">
+                            <Link to="/cart">
                                 <Button type='button'>
                                     <CiReceipt size={24}/>
                                     Pedidos 
-                                    <span>({card.length})</span>
+                                    <span>({cart.length})</span>
                                 </Button>
                             </Link>
                     }
@@ -111,7 +111,7 @@ export function Header({search, favoritesFilter}) {
                     }
 
                     <Logout to="/" onClick={signOut}>
-                        <BiExit />
+                        <CiLogout />
                     </Logout>
                 </div>
 

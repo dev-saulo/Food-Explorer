@@ -15,7 +15,7 @@ import { Button } from "../../components/Button";
 
 import { api } from "../../services/api";
 import { useAuth } from "../../hooks/auth";
-import { useCard } from '../../hooks/card';
+import { useCart } from '../../hooks/cart';
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -41,7 +41,7 @@ export function Details() {
 
     const imageURL = data && `${api.defaults.baseURL}/files/${data.image}`;
 
-    const { handleAddDishToCart } = useCard();
+    const { handleAddDishToCart } = useCart();
     
     const [quantity, setQuantity] = useState(1);
 

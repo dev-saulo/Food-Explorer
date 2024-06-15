@@ -5,7 +5,7 @@ import { CreateDish } from "../pages/AddDish";
 import { EditDish } from "../pages/Edit";
 import { Profile } from "../pages/Profile";
 import { Details } from "../pages/Details";
-import { Card } from "../pages/Card";
+import { Cart } from "../pages/Cart";
 import { Orders } from "../pages/OrderHistory";
 
 export function AppRoutes() {
@@ -16,7 +16,7 @@ export function AppRoutes() {
             <Route path="/edit/:id" element={<EditDish />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/details/:id" element={<Details />} />
-            <Route path="/card" element={<Card />} />
+            <Route path="/cart" element={<Cart />} />
             <Route path="/OrderHistory" element={<Orders />} />
         </Routes>
     )

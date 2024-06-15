@@ -10,7 +10,7 @@ import imagePlaceholder from '../../assets/img/image-icon.png';
 
 import { useAuth } from "../../hooks/auth";
 import { useFavorites } from '../../hooks/favorites';
-import { useCard } from '../../hooks/card.jsx';
+import { useCart } from '../../hooks/cart.jsx';
 import { Link } from "react-router-dom";
 import { api } from '../../services/api';
 import { useState } from "react";
@@ -25,7 +25,7 @@ export function Card({ data, ...rest }) {
     const { favorites, addPratoFavorito, removerPratoFavorito } = useFavorites()
     const isFavorite = favorites.some((dish) => dish.title === data.title)
 
-    const { handleAddDishPay, paymentAccept } = useCard();
+    const { handleAddDishPay, paymentAccept } = useCart();
     
     const [qtd, setQtd] = useState(1);
 

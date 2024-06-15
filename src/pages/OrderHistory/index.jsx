@@ -14,14 +14,14 @@ import { Footer } from "../../components/Footer";
 import { api } from '../../services/api';
 import { useAuth } from "../../hooks/auth";
 import { useEffect } from 'react';
-import { useCard } from '../../hooks/card';
+import { useCart } from '../../hooks/cart';
 
 export function Orders() {
     const [ theme, toggleTheme ] = useDarkMode();
     const themeMode = theme === 'lightTheme' ? lightTheme : darkTheme;
     
     const { user } = useAuth()
-    const { orders, setOrders } = useCard();
+    const { orders, setOrders } = useCart();
 
     useEffect(() => {
         async function fetchOrders() {

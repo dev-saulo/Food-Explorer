@@ -3,18 +3,18 @@ import ReactDOM from 'react-dom/client'
 
 import { AuthProvider } from './hooks/auth';
 import { FavoritesProvider } from './hooks/favorites';
-import { CardProvider } from './hooks/card';
+import { CartProvider } from './hooks/cart';
 
 import { Routes } from './routes';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <AuthProvider>
-          <CardProvider>
+          <CartProvider>
             <FavoritesProvider>
                     <Routes />
             </FavoritesProvider>
-          </CardProvider>
+          </CartProvider>
         </AuthProvider>
     </React.StrictMode>
 )
