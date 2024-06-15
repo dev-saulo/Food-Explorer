@@ -21,7 +21,7 @@ import { LiaShoppingBagSolid, LiaEnvelope  } from "react-icons/lia";
 import { AiOutlinePlus } from "react-icons/ai";
 import { FaWhatsapp } from "react-icons/fa";
 import avatarImg from '../../assets/img/avatar.png';
-import userPage from '../../assets/img/friends.png';
+import userPage from '../../assets/img/settings.gif';
 import adminPage from '../../assets/img/adminPage.gif';
 
 export function Profile() {
