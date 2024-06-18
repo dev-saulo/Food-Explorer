@@ -86,7 +86,7 @@ export function Header({search, favoritesFilter}) {
                         <Profile onClick={userMenu}>
                             <CiUser />
                             <div className="user-menu scale-up-ver-top" id="user-menu">
-                                    <Link to="/orderhistory">
+                                    <Link to="/orders">
                                         <ButtonMenu>
                                             <CiShoppingBasket size={24}/>
                                             Meus Pedidos

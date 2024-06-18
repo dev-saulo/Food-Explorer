@@ -15,8 +15,8 @@ function AuthProvider({ children }) {
             const response = await api.post("/sessions", { email, password });
             const { user, token } = response.data;
 
-            localStorage.setItem("@food-explorer:user", JSON.stringify(user));
-            localStorage.setItem("@food-explorer:token", token);
+            localStorage.setItem("@foodexplorer:user", JSON.stringify(user));
+            localStorage.setItem("@foodexplorer:token", token);
             
             api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             setData({ user, token });
@@ -35,8 +35,8 @@ function AuthProvider({ children }) {
     }
 
     function signOut(){
-        localStorage.removeItem("@food-explorer:token");
-        localStorage.removeItem("@food-explorer:user");
+        localStorage.removeItem("@foodexplorer:token");
+        localStorage.removeItem("@foodexplorer:user");
 
         setData({});
     }
@@ -54,7 +54,7 @@ function AuthProvider({ children }) {
             }
 
             await api.put("/users", user);
-            localStorage.setItem("@food-explorer:user", JSON.stringify(user));
+            localStorage.setItem("@foodexplorer:user", JSON.stringify(user));
 
             setData({ user, token: data.token });
             alert("Perfil atualizado com sucesso!");
@@ -73,8 +73,8 @@ function AuthProvider({ children }) {
     }
 
     useEffect(() => {
-        const token = localStorage.getItem("@food-explorer:token");
-        const user = localStorage.getItem("@food-explorer:user");
+        const token = localStorage.getItem("@foodexplorer:token");
+        const user = localStorage.getItem("@foodexplorer:user");
 
         if (token && user) {
             api.defaults.headers.common['Authorization'] = `Bearer ${token}`;

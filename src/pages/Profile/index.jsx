@@ -117,7 +117,7 @@ export function Profile() {
                                                 <Button title="Ver pedidos" icon={LiaShoppingBagSolid} />
                                             </Link>
 
-                                            <Link to="/createdish">
+                                            <Link to="/createDish">
                                                 <Button title="Novo prato" icon={AiOutlinePlus} />
                                             </Link>
                                         </Infos>
@@ -137,9 +137,9 @@ export function Profile() {
                                                 <Button title="Meus pedidos" icon={LiaShoppingBagSolid} />
                                             </Link>
 
-                                            <Button title="Contato por e-mail" icon={LiaEnvelope} onClick={() => window.location = 'mailto:contato@foodexplorer.com'} />
+                                            <Button title="Contato por e-mail" icon={LiaEnvelope} onClick={() => window.location = 'mailto:foodexplorer@email.com'} />
 
-                                            <Button title="WhatsApp" icon={FaWhatsapp} onClick={() => window.open("https://api.whatsapp.com/send?phone=+999999999999&text=Oi ! =)", '_blank')} />
+                                            <Button title="WhatsApp" icon={FaWhatsapp} onClick={() => window.open("https://api.whatsapp.com/send?phone=+999999999999&text=Olá ! =)", '_blank')} />
                                         </Infos>
                                 }
                             </div>

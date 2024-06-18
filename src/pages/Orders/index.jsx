@@ -2,19 +2,19 @@
 import { Container, Content, Table } from "./styles.js";
 
 import { ThemeProvider } from 'styled-components';
-import { ThemeSlider} from "../../components/ThemeSlider";
-import { useDarkMode } from '../../styles/modeDarkTheme';
-import GlobalStyles from '../../styles/global'
-import lightTheme from '../../styles/lightTheme';
-import darkTheme from '../../styles/theme';
+import { ThemeSlider} from "../../components/ThemeSlider/index.jsx";
+import { useDarkMode } from '../../styles/modeDarkTheme.js';
+import GlobalStyles from '../../styles/global.js'
+import lightTheme from '../../styles/lightTheme.js';
+import darkTheme from '../../styles/theme.js';
 
-import { Header } from "../../components/Header";
-import { Footer } from "../../components/Footer";
+import { Header } from "../../components/Header/index.jsx";
+import { Footer } from "../../components/Footer/index.jsx";
 
-import { api } from '../../services/api';
-import { useAuth } from "../../hooks/auth";
+import { api } from '../../services/api.js';
+import { useAuth } from "../../hooks/auth.jsx";
 import { useEffect } from 'react';
-import { useCart } from '../../hooks/cart';
+import { useCart } from '../../hooks/cart.jsx';
 
 export function Orders() {
     const [ theme, toggleTheme ] = useDarkMode();

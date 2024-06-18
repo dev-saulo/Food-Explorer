@@ -1,23 +1,23 @@
 import { Routes, Route } from "react-router-dom";
 
 import { Home } from "../pages/Home";
-import { CreateDish } from "../pages/AddDish";
-import { EditDish } from "../pages/Edit";
+import { CreateDish } from "../pages/CreateDish";
+import { EditDish } from "../pages/EditDish";
 import { Profile } from "../pages/Profile";
 import { Details } from "../pages/Details";
 import { Cart } from "../pages/Cart";
-import { Orders } from "../pages/OrderHistory";
+import { Orders } from "../pages/Orders";
 
 export function AppRoutes() {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/AddDish" element={<CreateDish />} />
+            <Route path="/createDish" element={<CreateDish />} />
             <Route path="/edit/:id" element={<EditDish />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/details/:id" element={<Details />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/OrderHistory" element={<Orders />} />
+            <Route path="/orders" element={<Orders />} />
         </Routes>
     )
 }

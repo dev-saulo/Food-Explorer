@@ -35,7 +35,6 @@ export function PaymentCard() {
     //BUTTONS//
     const [isPixVisible, setIsPixVisible] = useState(false);
     const [isCreditVisible, setIsCreditVisible] = useState(false);
-    const [isCartVisible, setIsCartVisible] = useState(true);
     const [pixActive, setPixActive] = useState(false);
     const [creditActive, setCreditActive] = useState(false);
     const [isClockActive, setIsClockActive] = useState(false);
@@ -44,7 +43,6 @@ export function PaymentCard() {
     const handlePix = () => {
         setIsPixVisible(true);
         setIsCreditVisible(false);
-        setIsCartVisible(false);
         setPixActive(true);
         setCreditActive(false);
     };
@@ -52,7 +50,6 @@ export function PaymentCard() {
     const handleCredit = () => {
         setIsCreditVisible(true);
         setIsPixVisible(false);
-        setIsCartVisible(false);
         setCreditActive(true);
         setPixActive(false);
     };
@@ -86,13 +83,6 @@ export function PaymentCard() {
             </div>
             
             <Content>
-
-                {isCartVisible &&
-                    <div className="cart" id="cart">
-                        <img src={cart} alt="Imagem do carrinho de compras" />
-                        <p>Selecione uma forma de pagamento acima!</p>
-                    </div>
-                }
 
                 {isPixVisible &&
                     <div className="paymentPix" id="paymentPix">

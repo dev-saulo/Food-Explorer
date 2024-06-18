@@ -1,23 +1,23 @@
 import { Container, Content, Form } from "./styles.js";
 
 import { ThemeProvider } from 'styled-components';
-import { ThemeSlider} from "../../components/ThemeSlider";
+import { ThemeSlider} from "../../components/ThemeSlider/index.jsx";
 import { useDarkMode } from '../../styles/modeDarkTheme.js';
-import GlobalStyles from '../../styles/global'
-import lightTheme from '../../styles/lightTheme';
-import darkTheme from '../../styles/theme';
+import GlobalStyles from '../../styles/global.js'
+import lightTheme from '../../styles/lightTheme.js';
+import darkTheme from '../../styles/theme.js';
 
-import { Header } from "../../components/Header";
-import { Footer } from "../../components/Footer";
-import { Button } from "../../components/Button";
-import { ButtonText } from "../../components/ButtonText";
-import { Input } from "../../components/Input";
-import { IngredientsTag } from "../../components/IngredientsTag";
-import { Textarea } from "../../components/Textarea";
-import { PageError } from "../../components/ErrorPag";
+import { Header } from "../../components/Header/index.jsx";
+import { Footer } from "../../components/Footer/index.jsx";
+import { Button } from "../../components/Button/index.jsx";
+import { ButtonText } from "../../components/ButtonText/index.jsx";
+import { Input } from "../../components/Input/index.jsx";
+import { Ingredients } from "../../components/Ingredients/index.jsx";
+import { Textarea } from "../../components/Textarea/index.jsx";
+import { PageError } from "../../components/ErrorPag/index.jsx";
 
-import { api } from "../../services/api";
-import { useAuth } from "../../hooks/auth";
+import { api } from "../../services/api.js";
+import { useAuth } from "../../hooks/auth.jsx";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -35,7 +35,7 @@ export function CreateDish( ) {
 
     const navigate = useNavigate();
 
-    // Add and Remove Ingredients
+
     const [ingredients, setIngredients] = useState([]);
     const [addIngredient, setAddIngredient] = useState("");
 
@@ -58,7 +58,7 @@ export function CreateDish( ) {
     const [category, setCategory] = useState("");
     const [image, setImage] = useState(null);
 
-    // Create New Dish Function
+
     async function handleNewDish() {
         if (!image) {
             return alert("Atenção, é necessário inserir a imagem do prato.");

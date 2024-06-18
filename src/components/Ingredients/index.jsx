@@ -19,7 +19,7 @@ import torrada from '../../assets/Dishes/torradas_de_parma.png'
 export function Ingredients({ ingredient }) {
 
     function fetchImageIngredient(name) {
-        let ingredient = name.toLowerCase().trim()
+        let ingredient = name
         
         let ingredientImage;
         
