@@ -1,10 +1,8 @@
-import { Container, Form, Logo, ImageContainer, Image } from "./styles";
+import { Container, Form, Logo } from "./styles";
 
-import { ThemeProvider } from "styled-components";
-import GlobalStyles from "../../styles/global";
-import darkTheme from "../../styles/theme";
-
-import Waiter from "../../assets/img/waiter.png"
+import { ThemeProvider } from 'styled-components';
+import GlobalStyles from '../../styles/global'
+import darkTheme from '../../styles/theme';
 
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
@@ -35,9 +33,6 @@ export function SignIn() {
                             </svg>
                             <h1>food explorer</h1>
                         </div>
-                        <ImageContainer>
-                            <Image src={ Waiter } alt="Garçom" />
-                        </ImageContainer>
                     </Logo>
                     
                     <Form>
@@ -62,13 +57,13 @@ export function SignIn() {
                         </div>
 
                         <Button 
-                            title={loading ? "Entrando..." : "Entrar"}
+                            title={loading ? "Entrando" : "Entrar"}
                             onClick={handleSignIn} 
                             disabled={loading}
                         />
 
                         <Link to="/register">
-                        Criar uma conta
+                            Criar conta
                         </Link>
 
                     </Form>

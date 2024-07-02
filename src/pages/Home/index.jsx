@@ -1,22 +1,28 @@
-import { Container, Content, Banner } from "./styles";
+import { Container, Content, Banner } from "./styles.js";
 
-import { ThemeProvider } from "styled-components"
-import { ThemeSlider } from "../../components/ThemeSlider"
-import { useDarkMode } from "../../styles/modeDarkTheme"
-import GlobalStyles from "../../styles/global"
+import { ThemeProvider } from 'styled-components';
+import { ThemeSlider} from "../../components/ThemeSlider";
+import { useDarkMode } from '../../styles/modeDarkTheme';
+import GlobalStyles from '../../styles/global'
 import lightTheme from '../../styles/lightTheme';
 import darkTheme from '../../styles/theme';
 
-import bannerImg from "../../assets/img/macarrons-home.png"
+import { Header } from "../../components/Header";
+import { Footer } from "../../components/Footer";
+import { Card } from "../../components/Card";
 
-import { api } from "../../services/api"
-import { useFavorites  } from "../../hooks/favorites"
-import { useState, useEffect } from "react"
+import { api } from '../../services/api';
+import { useState, useEffect } from 'react';
+import { useFavorites } from '../../hooks/favorites';
 
-import { Header } from "../../components/Header"
-import { Card } from "../../components/Card"
-import { Footer } from "../../components/Footer"
+import background from "../../assets/img/macarrons-home.png"
 
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/navigation";
+
+import { Navigation } from "swiper/modules";
 
 export function Home() {
     const [ theme, toggleTheme ] = useDarkMode();
@@ -46,13 +52,13 @@ export function Home() {
         <ThemeProvider theme={themeMode}>
             <GlobalStyles />
                 <Container>
-                    <Header className="header" search={setSearch} favoritesFilter={() => handleFavorites(favorites)}/>
+                    <Header search={setSearch} favoritesFilter={() => handleFavorites(favorites)}/>
                         <Content>
 
                             <ThemeSlider theme={theme} toggleTheme={toggleTheme}/>
                         
                             <Banner>
-                                <img src={bannerImg} alt="Imagem de macarrons" />
+                                <img src={background} alt="Imagem de ingredientes" />
                                 
                                 <div className="banner">
                                     <div className="title">
@@ -63,7 +69,7 @@ export function Home() {
                             </Banner>
 
                             <div className="cards">   
-                                <p>Refeições</p>
+                                <p>Pratos principais</p>
 
                                 {
                                     dishes.filter(dish => dish.category == "dishes").length > 0 &&

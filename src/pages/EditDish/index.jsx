@@ -23,8 +23,8 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import { PiArrowLeftLight } from "react-icons/pi";
-import { CiCamera } from "react-icons/ci";
+import { RiArrowLeftSLine } from 'react-icons/ri';
+import { FiCamera } from "react-icons/fi";
 
 export function EditDish() {
     const [ theme, toggleTheme ] = useDarkMode();
@@ -73,31 +73,31 @@ export function EditDish() {
 
     async function handleUpdateDish() {
         if (!image) {
-            return alert("Atenção, é necessário inserir a imagem do prato.");
+            return alert("Erro: Você não carregou a nova imagem do prato!");
         }
         
         if (!title) {
-            return alert("Atenção, é necessário inserir o nome do prato.");
+            return alert("Erro: Você não informou o nome do prato!");
         }
 
         if (ingredients.length < 1) {
-            return alert("É necessário adicionar ao menos um ingrediente!")
+            return alert("Erro: Adicione pelo menos um ingrediente!")
         }
 
-        if (addIngredient) {
+        if (newIngredient) {
             return alert("Erro: Você deixou um ingrediente no campo para adicionar, mas não clicou em adicionar. Clique no sinal de + para adicionar!");
         }
 
         if (!category) {
-            return alert("Atenção, é necessário selecionar a categoria do prato.");
+            return alert("Erro: Você não selecionou a categoria do prato!");
         }
 
         if (!price) {
-            return alert("Atenção, é necessário inserir o preço do prato.");
+            return alert("Erro: Você não informou o preço do prato!");
         }
 
         if (!description) {
-            return alert("Atenção, é necessário colocar a descrição do prato.");
+            return alert("Erro: Você não informou uma descrição para o prato!");
         }
 
         setLoading(true);
@@ -164,6 +164,7 @@ export function EditDish() {
             <GlobalStyles />
                 <Container>
                     <Header />
+
                     {
                         user.isAdmin ?
 
@@ -177,7 +178,7 @@ export function EditDish() {
                                 <Form>
                                     <header>
                                         <Link to="/">
-                                            <ButtonText title="Voltar" icon={PiArrowLeftLight}/>
+                                            <ButtonText title="Voltar" icon={RiArrowLeftSLine}/>
                                         </Link>
                                         <h1>Editar prato</h1>
                                     </header>
@@ -193,9 +194,15 @@ export function EditDish() {
                                                 />
 
                                                 <label htmlFor="image">
-                                                    <CiCamera />
+                                                    <FiCamera />
 
-                                                    <input id="image" type="file" name="image" accept="image/*" onChange={handleChangeImage} />
+                                                    <input
+                                                        id="image"
+                                                        type="file"
+                                                        name="image"
+                                                        accept="image/*"
+                                                        onChange={handleChangeImage}
+                                                    />
                                                 </label>
                                             </Image>
                                         </div>
@@ -203,15 +210,20 @@ export function EditDish() {
                                         <div className="dishDetails">
                                             <div className="dishName">
                                                 <div className="dish">
-                                                    <p>Nome</p>
-                                                    <Input placeholder="Ex.: Salada Caesar" type="text" value={title} onChange={e => setTitle(e.target.value)} />
+                                                    <p>Nome do prato</p>
+                                                    <Input
+                                                        placeholder="Ex.: Salada Caesar"
+                                                        type="text"
+                                                        value={title}
+                                                        onChange={e => setTitle(e.target.value)}
+                                                    />
                                                 </div>
 
                                                 <div className="dishCategory">
                                                     <p>Categoria</p>
 
                                                     <select value={category} onChange={e => setCategory(e.target.value)}>
-                                                        <option value="default" disabled>Refeição</option>
+                                                        <option value="default" disabled>Selecione a categoria</option>
                                                         <option value="dishes">Pratos</option>
                                                         <option value="drinks">Bebidas</option>
                                                         <option value="dessert">Sobremesas</option>
@@ -226,7 +238,11 @@ export function EditDish() {
                                                         <div className="ingredients">
                                                             {
                                                                 ingredients.map((ingredient, index) => (
-                                                                    <IngredientsTag key={String(index)} value={ingredient} onClick={() => handleRemoveIngredient(ingredient) } />
+                                                                    <IngredientsTag 
+                                                                        key={String(index)} 
+                                                                        value={ingredient} 
+                                                                        onClick={() => handleRemoveIngredient(ingredient) }
+                                                                    />
                                                                 ))
                                                             }
                                                             
@@ -285,7 +301,8 @@ export function EditDish() {
                         :
 
                             <PageError />
-                    }                    
+                    }
+                    
                         <Footer />
                 </Container>
         </ThemeProvider>

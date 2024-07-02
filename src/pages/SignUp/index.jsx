@@ -1,10 +1,8 @@
-import { Container, Form, Logo, ImageContainer, Image } from "./styles";
+import { Container, Form, Logo } from "./styles";
 
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../../styles/global'
 import darkTheme from '../../styles/theme';
-
-import Client from "../../assets/img/client.png"
 
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
@@ -27,14 +25,14 @@ export function SignUp() {
 
     function handleSignUp(){
         if (!name || !email || !password) {
-            return alert("Preencha todos os campos obrigatórios!");
+            return alert("Preencha todos os campos!");
         }
 
         setLoading(true);
 
         api.post("/users", { name, email, password })
             .then(() => {
-                alert("Usuário criado com sucesso!");
+                alert("Usuário cadastrado com sucesso!");
                 navigate(-1);
                 setLoading(false);
             })
@@ -42,7 +40,7 @@ export function SignUp() {
                 if(error.response){
                     alert(error.response.data.message);
                 } else {
-                    alert("Não foi possível realizar o cadastro");
+                    alert("Não foi possível cadastrar");
                 }
 
                 setLoading(false)
@@ -61,9 +59,6 @@ export function SignUp() {
                             </svg>
                             <h1>food explorer</h1>
                         </div>
-                        <ImageContainer>
-                            <Image src={ Client } alt="Clientes" />
-                        </ImageContainer>
                     </Logo>
                     
                     <Form>
@@ -97,7 +92,7 @@ export function SignUp() {
                         </div>
 
                         <Button 
-                            title={loading ? "Cadastrando..." : "Criar conta"}
+                            title={loading ? "Cadastrando" : "Criar conta"}
                             onClick={handleSignUp} 
                             disabled={loading}
                         />

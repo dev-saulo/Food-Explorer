@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect } from 'react';
 
 import { api } from '../services/api';
 
-export const Auth = createContext({});
+export const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
     const [data, setData] = useState({});
@@ -27,7 +27,7 @@ function AuthProvider({ children }) {
             if (error.response) {
                 alert(error.response.data.message);
             } else {
-                alert("Usuário ou senha inválidos.");
+                alert("Não foi possível entrar.");
             }
 
             setLoading(false);
@@ -87,7 +87,7 @@ function AuthProvider({ children }) {
     }, []);
 
     return (
-        <Auth.Provider value={{ 
+        <AuthContext.Provider value={{ 
             signIn,
             signOut,
             loading,
@@ -96,12 +96,12 @@ function AuthProvider({ children }) {
             user: data.user,
         }}>
             {children}
-        </Auth.Provider>
+        </AuthContext.Provider>
     )
 }
 
 function useAuth() {
-    const context = useContext(Auth);
+    const context = useContext(AuthContext);
 
     return context;
 }
