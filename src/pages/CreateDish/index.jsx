@@ -158,6 +158,17 @@ export function CreateDish( ) {
                                                 onChange={e => setTitle(e.target.value)}
                                             />
                                         </div>
+
+                                        <div className="dishCategory">
+                                            <p>Categoria</p>
+
+                                            <select defaultValue={'default'} onChange={e => setCategory(e.target.value)}>
+                                                <option value="default" disabled>Selecione</option>
+                                                <option value="dishes">Pratos</option>
+                                                <option value="drinks">Bebidas</option>
+                                                <option value="dessert">Sobremesas</option>
+                                            </select> 
+                                        </div>
                                     </div>
 
                                     <div className="ingredientsTag">
@@ -185,16 +196,7 @@ export function CreateDish( ) {
                                             </div>
                                         </div>
 
-                                        <div className="dishCategory">
-                                            <p>Categoria</p>
-
-                                            <select defaultValue={'default'} onChange={e => setCategory(e.target.value)}>
-                                                <option value="default" disabled>Selecione a categoria</option>
-                                                <option value="dishes">Pratos</option>
-                                                <option value="drinks">Bebidas</option>
-                                                <option value="dessert">Sobremesas</option>
-                                            </select> 
-                                        </div>
+                                        
 
                                         <div className="price">
                                             <p>Preço</p>

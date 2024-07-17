@@ -11,7 +11,8 @@ import { CiReceipt } from "react-icons/ci";
 import { IoMenu } from "react-icons/io5";
 
 
-import logo from '../../assets/img/poligono.svg';
+import logo from '../../assets/img/logo.svg';
+import logoAdmin from '../../assets/img/logoAdmin.svg';
 
 export function Header({search, favoritesFilter}) {
     const { user } = useAuth()
@@ -33,16 +34,19 @@ export function Header({search, favoritesFilter}) {
             <Content>
                 <div className="hamburger" id="hamburger" onClick={mobileMenu}>
                     <IoMenu size={24} />
-                    {/* <span className="bar"></span>
-                    <span className="bar"></span>
-                    <span className="bar"></span> */}
                 </div>
                 <Logo>
                     <div className="logo">
-                        <Link to="/">
-                            <img src={logo} alt="" />
-                            <h1>food explorer</h1>
-                        </Link>
+                        {
+                        user.isAdmin ?
+                            <Link to="/">
+                                <img src={logoAdmin} alt="" />
+                            </Link>
+                    :
+                            <Link to="/">
+                                <img src={logo} alt="" />
+                            </Link>
+                    }
                     </div>
                 </Logo>
 

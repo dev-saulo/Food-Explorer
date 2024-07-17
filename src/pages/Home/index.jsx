@@ -1,21 +1,21 @@
-import { Container, Content, Banner } from "./styles.js";
+import { Container, Content, Banner } from "./styles";
 
-import { ThemeProvider } from 'styled-components';
-import { ThemeSlider} from "../../components/ThemeSlider";
-import { useDarkMode } from '../../styles/modeDarkTheme';
-import GlobalStyles from '../../styles/global'
+import { ThemeProvider } from "styled-components"
+import { ThemeSlider } from "../../components/ThemeSlider"
+import { useDarkMode } from "../../styles/modeDarkTheme"
+import GlobalStyles from "../../styles/global"
 import lightTheme from '../../styles/lightTheme';
 import darkTheme from '../../styles/theme';
 
-import { Header } from "../../components/Header";
-import { Footer } from "../../components/Footer";
-import { Card } from "../../components/Card";
+import bannerImg from "../../assets/img/macarrons-home.png"
 
-import { api } from '../../services/api';
-import { useState, useEffect } from 'react';
-import { useFavorites } from '../../hooks/favorites';
+import { api } from "../../services/api"
+import { useFavorites  } from "../../hooks/favorites"
+import { useState, useEffect } from "react"
 
-import background from "../../assets/img/macarrons-home.png"
+import { Header } from "../../components/Header"
+import { Card } from "../../components/Card"
+import { Footer } from "../../components/Footer"
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -52,13 +52,13 @@ export function Home() {
         <ThemeProvider theme={themeMode}>
             <GlobalStyles />
                 <Container>
-                    <Header search={setSearch} favoritesFilter={() => handleFavorites(favorites)}/>
+                    <Header className="header" search={setSearch} favoritesFilter={() => handleFavorites(favorites)}/>
                         <Content>
 
                             <ThemeSlider theme={theme} toggleTheme={toggleTheme}/>
                         
                             <Banner>
-                                <img src={background} alt="Imagem de ingredientes" />
+                                <img src={bannerImg} alt="Imagem de macarrons" />
                                 
                                 <div className="banner">
                                     <div className="title">
@@ -69,7 +69,7 @@ export function Home() {
                             </Banner>
 
                             <div className="cards">   
-                                <p>Pratos principais</p>
+                                <p>Refeições</p>
 
                                 {
                                     dishes.filter(dish => dish.category == "dishes").length > 0 &&

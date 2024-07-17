@@ -77,18 +77,18 @@ export const Form = styled.form`
     }
 
     .dish {
-        width: 50%;
+        width: 463px;        
     }
 
     .dishCategory select {
-    background: ${({ theme }) => theme.COLORS.BLUE_300};
+    background: ${({ theme }) => theme.COLORS.BACKGROUND_500};
 
     border-radius: 0.5rem;
     border: none;
     border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
 
     height: 4.8rem;
-    width: 100%;
+    width: 200px;
 
     padding: 12px;
 
@@ -96,7 +96,7 @@ export const Form = styled.form`
 
     line-height: 26px;
 
-    color: ${({ theme }) => theme.COLORS.GRAY_100};
+    color: ${({ theme }) => theme.COLORS.WHITE};
 
     }
 
@@ -127,10 +127,6 @@ export const Form = styled.form`
             line-height: 2.4rem;
 
             cursor: pointer;
-        }
-
-        > label:hover {
-            background-color: ${({ theme }) => theme.COLORS.BLUE_200};
         }
     }
 
